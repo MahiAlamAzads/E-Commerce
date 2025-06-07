@@ -1,6 +1,5 @@
 import React from "react";
 import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
 
 const TestimonialData = [
   {
@@ -28,6 +27,8 @@ const TestimonialData = [
     img: "https://picsum.photos/103/103",
   },
 ];
+
+const Testimonials = () => {
   var settings = {
     dots: true,
     arrows: false,
@@ -35,7 +36,7 @@ const TestimonialData = [
     speed: 500,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 4000,
+    autoplaySpeed: 2000,
     cssEase: "linear",
     pauseOnHover: true,
     pauseOnFocus: true,
@@ -65,17 +66,14 @@ const TestimonialData = [
       },
     ],
   };
-const Testimonials = () => {
+
   return (
-    <div
-      data-aos="fade-up"
-      className="py-10 dark:bg-slate-800 dark:text-white"
-    >
+    <div className="py-10 mb-10">
       <div className="container">
-        {/* Header section */}
-     <div className="text-center mb-10 max-w-[600px] mx-auto">
+        {/* header section */}
+        <div className="text-center mb-10 max-w-[600px] mx-auto">
           <p data-aos="fade-up" className="text-sm text-primary">
-            What our customers say
+            What our customers are saying
           </p>
           <h1 data-aos="fade-up" className="text-3xl font-bold">
             Testimonials
@@ -86,31 +84,38 @@ const Testimonials = () => {
           </p>
         </div>
 
-        {/* Testimonials content */}
-        <div>
-            <Slider {...settings}>
-              {TestimonialData.map((item) => (
+        {/* Testimonial cards */}
+        <div data-aos="zoom-in">
+          <Slider {...settings}>
+            {TestimonialData.map((data) => (
+              <div className="my-6 min-w-[300px]">
                 <div
-                  key={item.id}
-                  className="p-4 sm:p-6 bg-white dark:bg-gray-900 rounded-lg shadow-md"
+                  key={data.id}
+                  className="flex flex-col gap-4 shadow-lg py-8 px-6 mx-4 rounded-xl dark:bg-gray-800 bg-primary/10 relative"
                 >
-                  <div className="flex items-center gap-4 mb-4">
+                  <div className="mb-4">
                     <img
-                      src={item.img}
-                      alt={item.name}
-                      className="w-16 h-16 rounded-full"
+                      src={data.img}
+                      alt=""
+                      className="rounded-full w-20 h-20"
                     />
-                    <h3 className="text-lg font-semibold">{item.name}</h3>
                   </div>
-                  <p className="text-sm text-gray-600 dark:text-gray-300">
-                    {item.text}
+                  <div className="flex flex-col items-center gap-4">
+                    <div className="space-y-3">
+                      <p className="text-xs text-gray-500">{data.text}</p>
+                      <h1 className="text-xl font-bold text-black/80 dark:text-light">
+                        {data.name}
+                      </h1>
+                    </div>
+                  </div>
+                  <p className="text-black/20 text-8xl font-serif absolute top-0 right-0">
+                    ,,
                   </p>
                 </div>
-              ))}
-
-            </Slider>
+              </div>
+            ))}
+          </Slider>
         </div>
-        
       </div>
     </div>
   );
