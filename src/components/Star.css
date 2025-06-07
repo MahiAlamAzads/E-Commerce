@@ -1,0 +1,21 @@
+.star-wrapper {
+  position: relative;
+  display: inline-block;
+  font-size: 24px;
+  line-height: 1;
+  width: fit-content;
+}
+
+.star-back {
+  color: #d1d5db; /* Tailwind gray-300 */
+}
+
+.star-front {
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  color: #facc15; /* Tailwind yellow-400 */
+  pointer-events: none;
+}
